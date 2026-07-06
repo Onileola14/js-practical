@@ -58,16 +58,21 @@ accounts.forEach((acc) => {
     .join("");
 });
 
-
-accounts.find((acc) => {
-  const toConfirm = prompt("ur username?");
-  acc.userName === toConfirm
-    ? console.log(acc)
-    : console.log('there is no account');
-    
-});
-
-
+// const toConfirm = prompt("ur username?");
+// const account = accounts.find((acc) => acc.userName === toConfirm);
+// if (account) {
+//   console.log(account);
+// } else {
+//   console.log('there is no account');
+// }
+const toConfirm = prompt("ur username?");
+const account = accounts.find((acc) => acc.userName === toConfirm);
+account
+  ? console.log(account)
+  : console.log("there is no account with that username");
+// const arr = [1, [2, 3], [4, [5, 6]]];
+// console.log(arr.flat());
+// console.log(arr.flat(Infinity));
 
 // const movements = [4000, -3000, 7000, -4000, 20000, -300, 7300, -5000];
 
