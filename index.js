@@ -1,0 +1,128 @@
+// const question = new Map([
+//   ["question", "what is the best progamming language in the world"],
+//   [1, "c"],
+//   [2, "python"],
+//   [3, "javascript"],
+//   ["correct" , 3],
+//   [true, "correct"],
+//   [false, "try again !!!"],
+// ]);
+// console.log(question.get("question"));
+
+// for (const [key, value] of question) {
+//   if (typeof key === "number") console.log(`answer ${key}: ${value}`);
+// }
+
+// const answer = Number(prompt('Your answer?'))
+// console.log(question.get(question.get('correct') === answer));
+
+// const name = 'tunde'
+// console.log(typeof name);
+
+const flights =
+  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+
+for (const flight of flights.split("+")) {
+  const arrayFlight = flight.split(";");
+  const [type, from, to, time] = arrayFlight;
+
+  const getCode = (str) => str.slice(0, 3).toLocaleUpperCase();
+
+  console.log(
+    `${type.replaceAll("_", " ")} ${getCode(from)} ${getCode(to)} (${time}h)`,
+  );
+}
+
+const account1 = {
+  name: "Tunde salami Amoo",
+  movements: [4000, -3000, 7000, -4000, 20000, -300, 730, -5000],
+};
+
+const account2 = {
+  name: "bolaji onileola",
+  movements: [4000, -3000, 700, -4000, 20000, -300, 7300, -5000],
+};
+const account3 = {
+  name: "akorede onileola",
+  movements: [400, -3000, 7000, -4000, 20000, -300, 7300, -5000],
+};
+
+const accounts = [account1, account2, account3];
+// computing username
+
+accounts.forEach((acc) => {
+  acc.userName = acc.name
+    .toLocaleLowerCase()
+    .split(" ")
+    .map((name) => name[0])
+    .join("");
+});
+
+
+accounts.find((acc) => {
+  const toConfirm = prompt("ur username?");
+  acc.userName === toConfirm
+    ? console.log(acc)
+    : console.log('there is no account');
+});
+
+
+
+// const movements = [4000, -3000, 7000, -4000, 20000, -300, 7300, -5000];
+
+// for (const [i, mov] of movements.entries()) {
+//   if (mov > 0) {
+//     console.log(`movement ${i + 1} : ${mov} deposited`);
+//   } else {
+//     console.log(`movement ${i + 1} : ${Math.abs(mov)} withdrawn`);
+//   }
+// }
+
+// console.log("-------FOREACH-----");
+
+// movements.forEach((mov, i, arr) => {
+//   if (mov > 0) {
+//     console.log(`movement ${i + 1} : ${mov} deposited`);
+//   } else {
+//     console.log(`movement ${i + 1} : ${Math.abs(mov)} withdrawn`);
+//   }
+// });
+// console.log("-------map------");
+
+// const mapedMovement = movements.map((mov, i) => {
+//   return `movement ${i + 1} : ${Math.abs(mov)} ${mov > 0 ? "deposited" : "withdrew"} `;
+// });
+
+// console.log(mapedMovement);
+
+// const name = "Tunde salami onileola";
+
+// const createUserName = (name) => {
+//   const userName = name
+//     .toLowerCase()
+//     .split(" ")
+//     .map((name) => name[0])
+//     .join("");
+//   return userName;
+// };
+// console.log(createUserName(name));
+
+// const depositedMov = movements.filter((mov) => {
+//   return mov > 0;
+// });
+// console.log(depositedMov);
+
+// const withdrewMov = movements.filter((mov) => {
+//   return mov < 0;
+// });
+// console.log(withdrewMov);
+
+// const balance = movements.reduce((acc, cur, i, arr) => {
+//   return acc + cur;
+// }, 0);
+// console.log(balance);
+
+// const max = movements.reduce((acc, mov) => {
+//   return acc > mov ? acc : mov;
+// }, movements.at(0));
+// console.log(max);
