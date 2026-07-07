@@ -147,3 +147,25 @@ console.log(accounts);
 //   return acc > mov ? acc : mov;
 // }, movements.at(0));
 // console.log(max);
+
+
+const urls = ['a', 'b', 'c'];
+
+async function run() {
+  urls.forEach(async (url) => {
+    await new Promise(r => setTimeout(r, 10));
+    console.log(url);
+  });
+  console.log('done');
+}
+
+run();
+
+const words = ['apple', 'banana', 'apple', 'cherry', 'banana', 'apple'];
+
+const counts = words.reduce((acc, word) => {
+  acc[word] = (acc[word] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(counts);
