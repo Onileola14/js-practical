@@ -36,15 +36,18 @@ for (const flight of flights.split("+")) {
 const account1 = {
   name: "Tunde salami Amoo",
   movements: [4000, -3000, 7000, -4000, 20000, -300, 730, -5000],
+  pin: 1111,
 };
 
 const account2 = {
   name: "bolaji onileola",
   movements: [4000, -3000, 700, -4000, 20000, -300, 7300, -5000],
+  pin: 2222,
 };
 const account3 = {
   name: "akorede onileola",
   movements: [400, -3000, 7000, -4000, 20000, -300, 7300, -5000],
+  pin: 3333,
 };
 
 const accounts = [account1, account2, account3];
@@ -58,6 +61,22 @@ accounts.forEach((acc) => {
     .join("");
 });
 
+// computing balance
+
+accounts.forEach((acc) => {
+  acc.balance = acc.movements.reduce((acc, mov) => {
+    return acc + mov;
+  }, 0);
+});
+
+console.log(accounts);
+
+// const toConfirm = prompt("ur username?");
+// const account = accounts.find((acc) => acc.userName === toConfirm);
+// account
+//   ? console.log(account)
+//   : console.log("there is no account with that username");
+
 // const toConfirm = prompt("ur username?");
 // const account = accounts.find((acc) => acc.userName === toConfirm);
 // if (account) {
@@ -65,11 +84,7 @@ accounts.forEach((acc) => {
 // } else {
 //   console.log('there is no account');
 // }
-const toConfirm = prompt("ur username?");
-const account = accounts.find((acc) => acc.userName === toConfirm);
-account
-  ? console.log(account)
-  : console.log("there is no account with that username");
+
 // const arr = [1, [2, 3], [4, [5, 6]]];
 // console.log(arr.flat());
 // console.log(arr.flat(Infinity));
