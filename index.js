@@ -148,24 +148,75 @@ console.log(accounts);
 // }, movements.at(0));
 // console.log(max);
 
-
-const urls = ['a', 'b', 'c'];
+const urls = ["a", "b", "c"];
 
 async function run() {
   urls.forEach(async (url) => {
-    await new Promise(r => setTimeout(r, 10));
+    await new Promise((r) => setTimeout(r, 10));
     console.log(url);
   });
-  console.log('done');
+  console.log("done");
 }
 
 run();
 
-const words = ['apple', 'banana', 'apple', 'cherry', 'banana', 'apple'];
+const words = ["apple", "banana", "apple", "cherry", "banana", "apple"];
 
 const counts = words.reduce((acc, word) => {
+  console.log(acc[word]);
+
   acc[word] = (acc[word] || 0) + 1;
   return acc;
 }, {});
 
 console.log(counts);
+
+const movements = [4000, -3000, 7000, -4000, 20000, -300, 7300, -5000];
+movements.sort((a, b) => {
+  if (a > b) {
+    return -1;
+  } else {
+    return 1;
+  }
+});
+
+console.log(movements);
+//====================
+const orders = [
+  { id: 1, item: 'pen', price: 2, qty: 3 },
+  { id: 2, item: 'book', price: 15, qty: 1 },
+  { id: 3, item: 'pen', price: 2, qty: 5 },
+  { id: 4, item: 'bag', price: 20, qty: 2 }
+];
+
+const total = orders
+  .filter(o => o.item === 'pen')
+  .map(o => o.price * o.qty)
+  .reduce((sum, cost) => sum + cost, 0);
+
+console.log(total);
+
+//====================
+
+const arr = [1, 2, NaN, 4];
+
+console.log(arr.indexOf(NaN));
+console.log(arr.includes(NaN));
+
+//===================== 
+
+const ar = [1, , 3]; // note the empty slot
+console.log(ar.length);
+
+console.log(ar.map(x => x * 2));
+console.log(ar.forEach(x => console.log('visited:', x)));
+
+const arr2 = [1, 2, 3, 4, 5];
+
+arr2.forEach((num, index) => {
+  if (num === 3) {
+    arr2.splice(index, 1);
+  }
+});
+
+console.log(arr2);
