@@ -163,7 +163,7 @@ run();
 const words = ["apple", "banana", "apple", "cherry", "banana", "apple"];
 
 const counts = words.reduce((acc, word) => {
-  console.log(acc[word]);
+  console.log(acc);
 
   acc[word] = (acc[word] || 0) + 1;
   return acc;
@@ -180,18 +180,24 @@ movements.sort((a, b) => {
   }
 });
 
+const groupedMovement = Object.groupBy(movements, (mov) =>
+  mov > 0 ? "deposited" : "withdrawals",
+);
+console.log(groupedMovement);
+
+
 console.log(movements);
 //====================
 const orders = [
-  { id: 1, item: 'pen', price: 2, qty: 3 },
-  { id: 2, item: 'book', price: 15, qty: 1 },
-  { id: 3, item: 'pen', price: 2, qty: 5 },
-  { id: 4, item: 'bag', price: 20, qty: 2 }
+  { id: 1, item: "pen", price: 2, qty: 3 },
+  { id: 2, item: "book", price: 15, qty: 1 },
+  { id: 3, item: "pen", price: 2, qty: 5 },
+  { id: 4, item: "bag", price: 20, qty: 2 },
 ];
 
 const total = orders
-  .filter(o => o.item === 'pen')
-  .map(o => o.price * o.qty)
+  .filter((o) => o.item === "pen")
+  .map((o) => o.price * o.qty)
   .reduce((sum, cost) => sum + cost, 0);
 
 console.log(total);
@@ -203,13 +209,13 @@ const arr = [1, 2, NaN, 4];
 console.log(arr.indexOf(NaN));
 console.log(arr.includes(NaN));
 
-//===================== 
+//=====================
 
 const ar = [1, , 3]; // note the empty slot
 console.log(ar.length);
 
-console.log(ar.map(x => x * 2));
-console.log(ar.forEach(x => console.log('visited:', x)));
+console.log(ar.map((x) => x * 2));
+console.log(ar.forEach((x) => console.log("visited:", x)));
 
 const arr2 = [1, 2, 3, 4, 5];
 
