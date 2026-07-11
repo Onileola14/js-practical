@@ -225,6 +225,11 @@ const accounts = [account1, account2, account3];
 // });
 
 // console.log(arr2);
+const utils = (acc) => {
+  return acc.flatMap((acc) => acc.movements)
+  .filter((mov) => mov < 0)
+  .reduce((acc, cur) => acc + cur, 0);
+}
 
 const totalDepositedMovement = accounts
   .flatMap((acc) => acc.movements)
@@ -233,8 +238,7 @@ const totalDepositedMovement = accounts
 console.log(totalDepositedMovement);
 
 
-const totalWithdrawalMovement = accounts
-  .flatMap((acc) => acc.movements)
-  .filter((mov) => mov < 0)
-  .reduce((acc, cur) => acc + cur, 0);
+const totalWithdrawalMovement = utils(accounts);
 console.log(totalWithdrawalMovement);
+
+
