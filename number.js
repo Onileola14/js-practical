@@ -25,7 +25,7 @@ console.log(randomInt(0, 6))
 
 
 
-const now = new Date().toISOString()
+const now = new Date()
 console.log(now);
 
 console.log(Date.now());
